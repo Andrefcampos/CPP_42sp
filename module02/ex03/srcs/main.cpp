@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:57:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/09 11:58:10 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/09 16:05:53 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/09 16:06:34 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+#include "Point.hpp"
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+int	main(void) {
+	Point A(0.0, 0.0);
+	Point B(4.0, 0.0);
+	Point C(2.0, 3.0);
+	Point P(2.0, 1.0);
 
+	bool isInside = bsp(A, B, C, P);
+
+	if (isInside) {
+		std::cout << "O ponto P está dentro do triângulo ABC." << std::endl;
+	} else {
+		std::cout << "O ponto P não está dentro do triângulo ABC." << std::endl;
+	}
 	return 0;
 }

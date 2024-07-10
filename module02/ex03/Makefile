@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/09 14:08:37 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/09 14:08:54 by andrefil         ###   ########.fr        #
+#    Created: 2024/07/09 14:11:41 by andrefil          #+#    #+#              #
+#    Updated: 2024/07/09 16:08:49 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Fixed
+NAME		:=	point
 
 #------------------ COMPILER -----------------#
 CC			:=	c++ -std=c++98
@@ -25,7 +25,8 @@ CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
 				main.cpp \
-				Fixed.cpp )
+				Fixed.cpp \
+				Point.cpp )
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:57:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/09 11:58:10 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/04 11:11:25 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/04 12:56:51 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+#include "Zombie.hpp"
+#include <iostream>
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+Zombie::Zombie(std::string nameZombie) : _nameZombie(nameZombie) {}
 
-	return 0;
+void	Zombie::announce(void) const {
+	std::cout << _nameZombie << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

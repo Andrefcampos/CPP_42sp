@@ -5,27 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/09 14:08:37 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/09 14:08:54 by andrefil         ###   ########.fr        #
+#    Created: 2024/07/06 16:35:21 by andrefil          #+#    #+#              #
+#    Updated: 2024/07/06 19:10:11 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Fixed
+NAME		:=	readfile
 
 #------------------ COMPILER -----------------#
-CC			:=	c++ -std=c++98
-
-#------------------ INCLUDES ------------------#
-INCLUDES	:=	$(addprefix -I, includes/)
+CC			:=	c++
 
 #------------------ FLAGS --------------------#
-CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
+CPP_FLAGS	:=	-Wall -Werror -Wextra -std=c++98
 
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
-				main.cpp \
-				Fixed.cpp )
+				main.cpp )
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/

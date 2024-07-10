@@ -5,27 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/09 14:08:37 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/09 14:08:54 by andrefil         ###   ########.fr        #
+#    Created: 2024/07/06 12:11:35 by andrefil          #+#    #+#              #
+#    Updated: 2024/07/06 19:10:30 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Fixed
+NAME		:=	address
 
 #------------------ COMPILER -----------------#
-CC			:=	c++ -std=c++98
-
-#------------------ INCLUDES ------------------#
-INCLUDES	:=	$(addprefix -I, includes/)
+CC			:=	c++
 
 #------------------ FLAGS --------------------#
-CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
+CPP_FLAGS	:=	-Wall -Werror -Wextra -std=c++98
 
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
-				main.cpp \
-				Fixed.cpp )
+				main.cpp )
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/
@@ -35,13 +31,13 @@ OBJS		:=	$(patsubst ./srcs/%.cpp, $(OBJS_DIR)%.o, $(SRC_FILES))
 all: $(NAME)
 
 $(OBJS_DIR)%.o: ./srcs/%.cpp
-	@mkdir -p $(OBJS_DIR)
+	mkdir -p $(OBJS_DIR)
 	@echo "Compiling $< -> $@"
-	@$(CC) $(CPP_FLAGS) -c $< -o $@
+	$(CC) $(CPP_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@echo "Linking $(NAME)"
-	@$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(OBJS) -o $(NAME)
 
 clean:
 	@echo "Objects clean: $(OBJS)"

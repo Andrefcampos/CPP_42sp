@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:33:29 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/10 08:21:31 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/07/10 08:21:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ Fixed &Fixed::operator=(Fixed const &param) {
 
 void	Fixed::setRawBits(int const raw) {_fixedValue = raw;}
 
-int	Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
-	return(_fixedValue);
-}
+int	Fixed::getRawBits(void) const {return(_fixedValue);}
 
 float	Fixed::toFloat(void) const {return ((float)_fixedValue / (float)(1 << _raw));}
 
@@ -109,10 +106,9 @@ Fixed	Fixed::operator*(Fixed const &param) {
 	return (Fixed(prod));
 }
 Fixed	Fixed::operator/(Fixed const &param) {
-	float	div;
+	float	div = 0;
 
 	if (this->getRawBits() == 0 || param.getRawBits() == 0) {
-		div = 0;
 		return (Fixed(div));
 	}
 	div = this->toFloat() / param.toFloat();

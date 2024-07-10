@@ -5,23 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:57:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/09 11:58:10 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/06 14:11:43 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/06 15:38:34 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+#include "HumanB.hpp"
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-
-	return 0;
+int main() {
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+  }
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
+  }
+  return 0;
 }

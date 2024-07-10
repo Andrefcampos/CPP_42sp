@@ -5,23 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:57:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/09 11:58:10 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/06 10:53:35 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/06 23:16:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+#include <ostream>
+#include <string>
+#include <iostream>
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+int	main(void) {
+	std::string	str = "HI THIS IS BRAIN";
+	std::string	*strPTR = &str;
+	std::string	&strREF = str;
 
-	return 0;
+	std::cout << "The memory address: " << &str << std::endl;
+	std::cout << "The memory address: " << strPTR << std::endl;
+	std::cout << "The memory address: " << &strREF << std::endl;
+
+	std::cout << "The value pointed: " << str << std::endl;
+	std::cout << "The value pointed: " << *strPTR << std::endl;
+	std::cout << "The value pointed: " << strREF << std::endl;
+
+	return (0);
 }

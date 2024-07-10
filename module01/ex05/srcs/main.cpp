@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:57:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/09 11:58:10 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/06 20:13:43 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/10 13:14:17 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+#include "Harl.hpp"
+#include <iostream>
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-
-	return 0;
+int	main(int ac, char **av) {
+	Harl	harl;
+	
+	if (ac != 2) {
+		std::cout << "Many parameters, try: [./harlFilter], [level]" << std::endl;
+		return (1);
+	}
+	harl.complain(av[1]);
+	return (0);
 }

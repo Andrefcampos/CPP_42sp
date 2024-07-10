@@ -5,27 +5,29 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/09 14:08:37 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/09 14:08:54 by andrefil         ###   ########.fr        #
+#    Created: 2024/07/06 14:10:35 by andrefil          #+#    #+#              #
+#    Updated: 2024/07/06 19:10:21 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Fixed
+NAME		:=	attack
 
 #------------------ COMPILER -----------------#
-CC			:=	c++ -std=c++98
+CC			:=	c++
 
 #------------------ INCLUDES ------------------#
 INCLUDES	:=	$(addprefix -I, includes/)
 
 #------------------ FLAGS --------------------#
-CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
+CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra -std=c++98
 
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
 				main.cpp \
-				Fixed.cpp )
+				HumanA.cpp \
+				HumanB.cpp \
+				Weapon.cpp)
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/
