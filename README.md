@@ -79,7 +79,7 @@ Each module may have specific instructions on how to use and test the features i
 The project directory structure is organized as follows:
 
 ```css
-cpp_module/
+cpp_42sp/
 ├── module00/
 │   ├── includes/
 │   │   └── example.hpp
