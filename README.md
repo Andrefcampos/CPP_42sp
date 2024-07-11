@@ -1,4 +1,4 @@
-# CPP Module
+# CPP Modules
 
 ![42 São Paulo](https://img.shields.io/badge/42-SP-000000)
 
