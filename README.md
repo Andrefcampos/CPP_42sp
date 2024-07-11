@@ -21,14 +21,14 @@ The **CPP Module** project is part of the curriculum at [42 São Paulo](https://
 
 This project is divided into several modules, each focusing on different aspects of C++:
 
-- **[Module00](module00)**: Basics of C++ - namespaces, classes, member functions, stdio streams, initialization lists, static, const, and more.
-- **[Module01](module01)**: Memory Allocation - new, delete, pointers to members, references, file streams.
-- **[Module02](module02)**: Ad-hoc Polymorphism, Operators Overloading.
-- **[Module03](module03)**: Inheritance.
-- **Module04**: Subtype Polymorphism, Abstract Classes, Interfaces.
-- **Module05**: Repetition and Exceptions.
-- **Module06**: C++ Casts.
-- **Module07**: Templates.
+- **[Module00](module00)**: Basics of C++ (namespaces, classes, member functions, stdio streams, initialization lists, static, const, and more);
+- **[Module01](module01)**: Memory Allocation (new, delete, pointers to members, references, file streams);
+- **[Module02](module02)**: Ad-hoc Polymorphism, Operators Overloading;
+- **[Module03](module03)**: Inheritance;
+- **Module04**: Subtype Polymorphism, Abstract Classes, Interfaces;
+- **Module05**: Repetition and Exceptions;
+- **Module06**: C++ Casts;
+- **Module07**: Templates;
 - **Module08**: Templated Containers, Iterators, Algorithms.
 
 ## Requirements
