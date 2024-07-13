@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/10 14:39:42 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/13 02:40:21 by andrefil         ###   ########.fr        #
+#    Created: 2024/07/12 16:55:20 by andrefil          #+#    #+#              #
+#    Updated: 2024/07/13 03:40:42 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	ClapTrap
+NAME		:=	DiamondTrap
 
 #------------------ COMPILER -----------------#
-CC			:=	c++ -std=c++98
+CC			:=	c++ -std=c++98 -Wshadow
 
 #------------------ INCLUDES ------------------#
 INCLUDES	:=	$(addprefix -I, includes/)
@@ -25,7 +25,10 @@ CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
 				main.cpp \
-				ClapTrap.cpp )
+				ClapTrap.cpp \
+				ScavTrap.cpp \
+				FragTrap.cpp \
+				DiamondTrap.cpp)
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/

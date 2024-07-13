@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 15:08:22 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/13 02:42:56 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/12 15:32:30 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/13 02:49:33 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include <iostream>
+#ifndef FRAG_TRAP_HPP
+# define FRAG_TRAP_HPP
 
-int main(void) {
-  {
-		std::cout << "Meus testes:\n " << std::endl;
-    ClapTrap blu("hui");
+# include "ClapTrap.hpp"
 
-    for (unsigned int i = 0; i < 40; i++) {
-      blu.attack("monster");
-      blu.takeDamage(i + 2);
-      blu.beRepaired(static_cast<unsigned int>(i));
-      if (!blu.getHitPoints())
-        break;
-    }
-  }
-  return (0);
-}
+class	FragTrap : public ClapTrap {
+
+	public:
+		FragTrap(void);
+		~FragTrap(void);
+		FragTrap(FragTrap const &param);
+		FragTrap(std::string const &name);
+
+		FragTrap	&operator=(FragTrap const &param);
+
+		void	highFivesGuys(void);
+};
+
+#endif

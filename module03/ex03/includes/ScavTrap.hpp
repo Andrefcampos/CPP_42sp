@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 15:08:22 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/13 02:42:56 by andrefil         ###   ########.fr       */
+/*   Created: 2024/07/10 22:27:54 by andrefil          #+#    #+#             */
+/*   Updated: 2024/07/13 00:39:48 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include <iostream>
+#ifndef SCAV_TRAP_HPP
+# define SCAV_TRAP_HPP
 
-int main(void) {
-  {
-		std::cout << "Meus testes:\n " << std::endl;
-    ClapTrap blu("hui");
+# include "ClapTrap.hpp"
+# include <string>
 
-    for (unsigned int i = 0; i < 40; i++) {
-      blu.attack("monster");
-      blu.takeDamage(i + 2);
-      blu.beRepaired(static_cast<unsigned int>(i));
-      if (!blu.getHitPoints())
-        break;
-    }
-  }
-  return (0);
-}
+class	ScavTrap : virtual public ClapTrap {
+
+public:
+	ScavTrap(void);
+	~ScavTrap(void);
+	ScavTrap(ScavTrap const &param);
+	ScavTrap(std::string const &name);
+
+	ScavTrap &operator=(ScavTrap const &param);
+
+	void	attack(const std::string &target);
+	void	guardGate(void);
+};
+
+#endif
