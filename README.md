@@ -73,6 +73,12 @@ After compiling the project, run the generated executable from the terminal:
 ./module_executable
 ```
 
+or you can run whit valgrind using:
+
+```sh
+make run
+```
+
 Each module may have specific instructions on how to use and test the features implemented. Refer to the module's README or documentation for detailed usage.
 
 ## File Structure
