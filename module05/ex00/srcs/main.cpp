@@ -6,19 +6,16 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 01:37:09 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/17 01:58:18 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:55:02 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-#define RED "\033[31m"
-#define RST "\033[0m"
-
 int main() {
   std::cout << std::endl;
-  std::cout << RED << "Test increment a high grade." << RST << std::endl;
+  std::cout << "Test increment a high grade." << std::endl;
   {
     try {
       Bureaucrat john("High Grade Bure", 1);
@@ -36,7 +33,7 @@ int main() {
     }
   }
   std::cout << std::endl;
-  std::cout << RED << "Test decrement a low grade." << RST << std::endl;
+  std::cout << "Test decrement a low grade." << std::endl;
   {
     try {
       Bureaucrat john("Low Grade Bure", 150);
@@ -54,7 +51,7 @@ int main() {
     }
   }
   std::cout << std::endl;
-  std::cout << RED << "Now different grade" << RST << std::endl;
+  std::cout << "Now different grade" << std::endl;
   {
     try {
       Bureaucrat john("Mid Grade", 75);

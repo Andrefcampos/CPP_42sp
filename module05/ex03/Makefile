@@ -6,12 +6,12 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 14:40:15 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/18 17:02:38 by andrefil         ###   ########.fr        #
+#    Updated: 2024/07/18 17:04:38 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Bureaucrat
+NAME		:=	Intern
 
 #------------------ COMPILER -----------------#
 CC			:=	c++ -std=c++98
@@ -25,7 +25,12 @@ CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
 				main.cpp \
-				Bureaucrat.cpp)
+				Bureaucrat.cpp \
+				AForm.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp \
+				Intern.cpp)
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/

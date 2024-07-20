@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 14:40:15 by andrefil          #+#    #+#              #
-#    Updated: 2024/07/17 22:34:52 by andrefil         ###   ########.fr        #
+#    Updated: 2024/07/18 17:02:10 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(OBJS) -o $(NAME)
 
 run: re
-	clear && valgrind --leak-check=full ./Form && make fclean
+	clear && valgrind --leak-check=full ./$(NAME) && make fclean
 
 clean:
 	@echo "Objects clean: $(OBJS)"

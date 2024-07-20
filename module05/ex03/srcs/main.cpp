@@ -6,16 +6,18 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 01:37:09 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/20 04:55:26 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/07/20 04:56:36 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <cstdlib>
+#include <string>
 
 #define printt(x) std::cout << x;
 
@@ -129,7 +131,7 @@ void testPresidentialPardon(void) {
   delete a;
 
   printt(RED "x->" DFT);
-  printt(YELLOW " Success grade to sing and fail execute form " DFT);
+  printt(GREEN " Success grade to sing and fail execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *c = new PresidentialPardonForm("Plan");
@@ -165,6 +167,65 @@ void testPresidentialPardon(void) {
   printt(BLUE "<--\n" DFT);
 }
 
+void testIntern(void) {
+
+  printt(BLUE "\n-->" DFT);
+  printt(GREEN " Start test Intern " DFT);
+  printt(BLUE "<--\n" DFT);
+
+  printt(RED "x->" DFT);
+  printt(GREEN " Intern call RobotomyRequest " DFT);
+  printt(RED "<-x\n" DFT);
+
+  Intern someRandomIntern;
+  AForm *rrf;
+  rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+  Bureaucrat b1("Harley", 10);
+  Bureaucrat b2("Freud", 45);
+
+  b1.signForm(*rrf);
+  b1.executeForm(*rrf);
+  std::cout << b1 << std::endl;
+  printt("\n");
+
+  b2.signForm(*rrf);
+  b2.executeForm(*rrf);
+  std::cout << b2 << std::endl;
+  printt("\n");
+
+  std::cout << *rrf << std::endl;
+
+  delete rrf;
+
+  printt(RED "x->" DFT);
+  printt(GREEN " Intern call ShrubberyCreation " DFT);
+  printt(RED "<-x\n" DFT);
+
+  Intern intern;
+  AForm *SCF = intern.makeForm("shrubbery creation", "Bld");
+
+  Bureaucrat b3("Mart", 136);
+  Bureaucrat b4("Carl", 145);
+  b3.signForm(*SCF);
+  b3.executeForm(*SCF);
+  std::cout << b3 << std::endl;
+  printt("\n");
+
+  b4.signForm(*SCF);
+  b4.executeForm(*SCF);
+  std::cout << b4 << std::endl;
+  printt("\n");
+
+  std::cout << *SCF << std::endl;
+
+  delete SCF;
+
+  printt(BLUE "\n-->" DFT);
+  printt(GREEN " End test Intern " DFT);
+  printt(BLUE "<--\n" DFT);
+}
+
 void next(void) {
   std::string line;
   std::cout << GRAY "PRESS ENTER TO CONTINUE" DFT;
@@ -179,6 +240,8 @@ int main() {
   next();
   testPresidentialPardon();
   next();
-  std::cout << RED "Bye baby!\n" DFT;
+  testIntern();
+  next();
+  std::cout << RED "Bye Bye!\n\n" DFT;
   return (0);
 }
