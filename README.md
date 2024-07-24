@@ -73,7 +73,7 @@ After compiling the project, run the generated executable from the terminal:
 ./module_executable
 ```
 
-or you can run whit valgrind using:
+or you can run with valgrind using:
 
 ```sh
 make run
