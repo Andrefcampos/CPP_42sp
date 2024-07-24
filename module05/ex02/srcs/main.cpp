@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 01:37:09 by andrefil          #+#    #+#             */
-/*   Updated: 2024/07/20 04:55:26 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/07/20 20:22:16 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <cstdlib>
 
-#define printt(x) std::cout << x;
+#define printt(x) std::cout << x
 
 void testShrubbery(void) {
   printt(BLUE "\n-->" DFT);
@@ -25,7 +25,7 @@ void testShrubbery(void) {
   printt(BLUE "<--\n" DFT);
 
   printt(RED "x->" DFT);
-  printt(BLUE " Shrubbery success execute form " DFT);
+  printt(BLUE " Shrubbery success sign and execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *a = new ShrubberyCreationForm("Home");
@@ -42,7 +42,7 @@ void testShrubbery(void) {
   delete a;
 
   printt(RED "x->" DFT);
-  printt(YELLOW " Shrubbery failed execute form " DFT);
+  printt(YELLOW " Shrubbery success sign and failed execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *c = new ShrubberyCreationForm("Build");
@@ -58,6 +58,23 @@ void testShrubbery(void) {
 
   delete c;
 
+  printt(RED "x->" DFT);
+  printt(YELLOW " Shrubbery failed sign and execute form " DFT);
+  printt(RED "<-x\n" DFT);
+
+  AForm *e = new ShrubberyCreationForm("Town");
+  Bureaucrat f("Mia", 149);
+
+  std::cout << f << std::endl;
+
+  f.signForm(*e);
+  f.executeForm(*e);
+  printt("\n");
+
+  std::cout << *e << std::endl;
+
+  delete e;
+
   printt(BLUE "-->" DFT);
   printt(GREEN " End test ShrubberyCreationForm " DFT);
   printt(BLUE "<--\n" DFT);
@@ -69,7 +86,7 @@ void testRobotomyRequest(void) {
   printt(BLUE "<--\n" DFT);
 
   printt(RED "x->" DFT);
-  printt(BLUE " RobotomyRequest success execute form " DFT);
+  printt(BLUE " RobotomyRequest success sign and execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *a = new RobotomyRequestForm("Auto");
@@ -86,7 +103,7 @@ void testRobotomyRequest(void) {
   delete a;
 
   printt(RED "x->" DFT);
-  printt(YELLOW " RobotomyRequest failed execute form " DFT);
+  printt(YELLOW " RobotomyRequest success sign and failed execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *c = new RobotomyRequestForm("Movel");
@@ -101,6 +118,23 @@ void testRobotomyRequest(void) {
   std::cout << *c << std::endl;
 
   delete c;
+
+  printt(RED "x->" DFT);
+  printt(YELLOW " RobotomyRequest failed sign and execute form " DFT);
+  printt(RED "<-x\n" DFT);
+
+  AForm *e = new RobotomyRequestForm("Bike");
+  Bureaucrat f("Tay", 47);
+
+  std::cout << f << std::endl;
+
+  f.signForm(*e);
+  f.executeForm(*e);
+  printt("\n");
+
+  std::cout << *e << std::endl;
+
+  delete e;
 
   printt(BLUE "-->" DFT);
   printt(GREEN " End test RobotomyRequestForm " DFT);
@@ -145,7 +179,7 @@ void testPresidentialPardon(void) {
   delete c;
 
   printt(RED "x->" DFT);
-  printt(YELLOW " Success grade to sing and execute form " DFT);
+  printt(GREEN " Success grade to sing and execute form " DFT);
   printt(RED "<-x\n" DFT);
 
   AForm *e = new PresidentialPardonForm("Vue");
@@ -158,6 +192,7 @@ void testPresidentialPardon(void) {
   printt("\n");
 
   std::cout << *e << std::endl;
+
   delete e;
 
   printt(BLUE "-->" DFT);
@@ -179,6 +214,6 @@ int main() {
   next();
   testPresidentialPardon();
   next();
-  std::cout << RED "Bye baby!\n" DFT;
+  std::cout << RED "Bye Bye!\n\n" DFT;
   return (0);
 }
