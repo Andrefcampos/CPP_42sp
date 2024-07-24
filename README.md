@@ -27,7 +27,7 @@ This project is divided into several modules, each focusing on different aspects
 - **[Module03](module03)**: Inheritance;
 - **[Module04](module04)**: Subtype Polymorphism, Abstract Classes, Interfaces;
 - **[Module05](module05)**: Repetition and Exceptions;
-- **Module06**: C++ Casts;
+- **[Module06](module06)**: C++ Casts;
 - **Module07**: Templates;
 - **Module08**: Templated Containers, Iterators, Algorithms;
 - **Module09**: Repetition and Containers.
