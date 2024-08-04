@@ -31,6 +31,8 @@ public:
 
 	Array	&operator=(Array const &param);
 
+  unsigned int size(void) const;
+
 	const T	&operator[](unsigned int const &index) const;
 	T	&operator[](unsigned int const &index);
 };

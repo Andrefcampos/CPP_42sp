@@ -13,7 +13,8 @@ CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
 
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
-				main.cpp )
+								main.cpp \
+								Array.tpp)
 
 #------------------ OBJ ---------------------#
 OBJS_DIR	:=	./objs/
