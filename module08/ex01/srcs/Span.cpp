@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/15 13:05:35 by andrefil          #+#    #+#             */
+/*   Updated: 2024/08/15 13:20:49 by andrefil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
 #include <limits>
-#include <stdexcept>
 
+Span::Span(void) : {
+	
+}
 
 int Span::addNumber(int number) {
     if (_numbers.size() < _maxSize) {
