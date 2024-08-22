@@ -1,11 +1,17 @@
+
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
-# include "Array.hpp"
-# include <cstddef>
+# include "../includes/Array.hpp"
+# include <stdexcept>
 
 template <typename T>
-Array<T>::Array() : _data(new T[0]()), _size(0) {}
+Array<T>::Array(void) : _data(NULL), _size(0) {}
+
+template <typename T>
+Array<T>::~Array() {
+	delete[] _data;
+}
 
 template <typename T>
 Array<T>::Array(unsigned int const &num) : _data(new T[num]()), _size(num) {}
@@ -32,7 +38,7 @@ Array<T> &Array<T>::operator=(Array const &param) {
       _data[i] = param._data[i];
     }
   }
-  return (*this)
+  return (*this);
 }
 
 template <typename T>
@@ -40,15 +46,15 @@ T &Array<T>::operator[](unsigned int const &param) {
   if (param >= this->_size) {
     throw std::out_of_range("Index out of range");
   }
-  return this->_data[_index];
+  return this->_data[param];
 }
 
 template <typename T>
-const T &Array<T>::operator[](unsigned int const &param) {
+const T &Array<T>::operator[](unsigned int const &param) const {
   if (param >= this->_size) {
     throw std::out_of_range("Index out of range");
   }
-  return this->_data[index];
+  return this->_data[param];
 }
 
 #endif

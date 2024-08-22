@@ -1,0 +1,19 @@
+[
+ {
+  "directory": "/nfs/homes/andrefil/42_git_projects/CPP_git/module07/ex02",
+  "arguments": [
+   "c++",
+   "-std=c++98",
+   "-Iincludes/,",
+   "-Isrcs/",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-c",
+   "srcs/main.cpp",
+   "-o",
+   "objs/main.o"
+  ],
+  "file": "srcs/main.cpp"
+ }
+]
