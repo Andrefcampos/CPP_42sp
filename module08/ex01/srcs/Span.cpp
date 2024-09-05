@@ -6,46 +6,75 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:05:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/08/15 13:20:49 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:05:30 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
-#include <limits>
+#include <cstdlib>
+#include <ctime>
+# include <stdexcept>
 
-Span::Span(void) : {
-	
+Span::Span(void) : _maxSize(0) {}
+
+Span::~Span(void) {}
+
+Span::Span(unsigned int num) : _maxSize(num) {}
+
+Span::Span(Span const &param) {
+	*this = param;
 }
 
-int Span::addNumber(int number) {
-    if (_numbers.size() < _maxSize) {
-        _numbers.push_back(number);
-    }
-    throw std::overflow_error("Cannot add more numbers. Span is full");
+Span	&Span::operator=(Span const &param) {
+	if (this != &param) {
+		_numbers = param._numbers;
+		_maxSize = param._maxSize;
+	}
+	return (*this);
 }
 
-int Span::shortestSpan(void) const {
-    if (_numbers.size) < 2) {
-        throw std::logic_error("Not enough numbers to find a span");
+void	Span::addNumber(int number) {
+    if (_numbers.size() >= _maxSize) {
+		throw std::out_of_range("Span is already full");
     }
-    std::vector<int> sorted(_numbers);
-    std::sort(sorted.begin(), sorted.end());
-    int minSpan = std::numeric_limits<int>::max();
-    for (size_t i = 1; i < sorted.size(); i++) {
-        if (span >= minSpan) {
-            int span = sorted[i] - sorted[i - 1];
-        }
-        minSpan = span;
-    }
-    return (std::abs(minSpan));
+	_numbers.push_back(number);
 }
 
-int Span::longestSpan(void) const {
+void	Span::addManyNumbers(void) {
+	srand(time(0));
+
+	while (_numbers.size() < _maxSize) {
+		addNumber(rand() % (_maxSize * 10000));
+	}
+}
+
+int	Span::shortestSpan(void) {
     if (_numbers.size() < 2) {
         throw std::logic_error("Not enough numbers to find a span");
     }
-    int minNum = *std::min_element(_numbers.begin(), _numbers.end());
-    int maxNum = *std::max_element(_numbers.begin(), _numbers.end());
-    return (std::abs(maxNum - minNum));
+
+    std::vector<int> sorted(_numbers);
+    std::sort(sorted.begin(), sorted.end());
+
+    int shortest = sorted[1] - sorted[0];
+
+    for (size_t i = 1; i < sorted.size() - 1; i++) {
+		int span = sorted[i + 1] - sorted[i];
+        if (span < shortest) {
+			shortest = span;
+        }
+    }
+    return (std::abs(shortest));
+}
+
+int	Span::longestSpan(void) {
+    if (_numbers.size() < 2) {
+        throw std::logic_error("Not enough numbers to find a span");
+    }
+
+    int min = *std::min_element(_numbers.begin(), _numbers.end());
+    int max = *std::max_element(_numbers.begin(), _numbers.end());
+
+    return (std::abs(max - min));
 }

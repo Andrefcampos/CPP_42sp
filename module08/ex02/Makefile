@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/22 23:32:20 by andrefil          #+#    #+#              #
-#    Updated: 2024/08/24 19:30:53 by andrefil         ###   ########.fr        #
+#    Created: 2024/08/24 23:30:16 by andrefil          #+#    #+#              #
+#    Updated: 2024/08/24 23:42:30 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #------------------ NAME ---------------------#
-NAME		:=	Span
+NAME		:=	MutantStack
 
 #------------------ COMPILER -----------------#
 CC			:=	c++ -std=c++98
@@ -24,7 +24,6 @@ CPP_FLAGS	:=	$(INCLUDES) -Wall -Werror -Wextra
 
 #------------------ FILES --------------------#
 SRC_FILES	+=	$(addprefix ./srcs/, \
-				Span.cpp \
 				main.cpp)
 
 #------------------ OBJ ---------------------#

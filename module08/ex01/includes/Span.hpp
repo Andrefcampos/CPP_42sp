@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:05:29 by andrefil          #+#    #+#             */
-/*   Updated: 2024/08/15 13:05:31 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:04:50 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SPAN_HPP
 
 # include <vector>
-# include <stdexcept>
-# include <iterator>
 
 class   Span {
     private:
@@ -27,18 +25,13 @@ class   Span {
         ~Span();
         Span(unsigned int num);
         Span(Span const &param);
-        Span    &operator=(Span const &param);
 
-        void    addNumber(int number);
-        int     shortestSpan(void) const;
-        int     longestSpan(void) const;
+        Span	&operator=(Span const &param);
 
-        template <typename Iterator> void addRange(Iterator begin, Iterator end) {
-            if (std::distance(begin, end) > static_cast<int>(_maxSize)) {
-                throw std::overflow_error("Not enough space in Span to add entire range");
-            }
-            _numbers.insert(_numbers.end(), begin, end);
-        }
+        void	addNumber(int number);
+        int		shortestSpan(void);
+        int		longestSpan(void);
+		void	addManyNumbers(void);
 };
 
 #endif
