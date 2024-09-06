@@ -6,21 +6,15 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 00:14:56 by andrefil          #+#    #+#             */
-/*   Updated: 2024/09/05 03:52:02 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/09/06 04:14:41 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-#include <cstddef>
-#include <cstdio>
 #include <cstdlib>
-#include <exception>
 #include <fstream>
 #include <iomanip>
-#include <ios>
 #include <iostream>
-#include <stdexcept>
-#include <string>
 #include <cstring>
 
 BitcoinExchange::BitcoinExchange(void) : _file(   "./data.csv") {
@@ -74,6 +68,30 @@ bool	BitcoinExchange::validateDate(std::string const &date) const {
 	return (true);
 }
 
+bool	BitcoinExchange::validateInput(std::string const &input) const {
+	if (input.length() < 14) {
+		return (false);
+	}
+	if (input[4] != '-' || input[7] != '-' || input[10] != ' ' \
+		|| input[11] != '|' || input[12] != ' ') {
+		return (false);
+	}
+	int	year, moth, day;
+	float	value;
+	char	extra;
+	if (sscanf(input.c_str(), "%d-%d-%d | %f%c", &year, &moth, &day, &value, \
+		&extra) != 4) {
+		return (false);
+	}
+
+	std::size_t	space = input.find(' ');
+	std::string	date = input.substr(0, space);
+	if (validateDate(date) == false) {
+		return (false);
+	}
+	return (true);
+}
+
 void	BitcoinExchange::setData(void) {
 
 	if (std::strcmp(_file.c_str(), "./data.csv")) {
@@ -115,57 +133,6 @@ void	BitcoinExchange::printData(void) const {
             std::cout << "Data: " << it->first << ", Value: " << it->second \
 			<< std::fixed << std::setprecision(2) << std::endl;
         }
-    }
-
-void	BitcoinExchange::printFile(std::string const &fileName) {
-	std::ifstream	file(   fileName.c_str());
-
-	if (!file) {
-		throw std::runtime_error(RED "could not open file." DFT);
-	}
-
-	std::string line;
-	std::string firstLine;
-	getline(file, firstLine);
-
-	if (strcmp(firstLine.c_str(), "date | value")) {
-		throw std::runtime_error(RED "wrong field. \"date | value\"" DFT);
-	}
-
-	while (std::getline(file, line)) {
-		if (line == firstLine) {
-			continue;
-		}
-		try {
-			printExchange(line);
-		} catch (const std::exception &e) {
-			std::cerr << RED "Error: " << e.what() << DFT << std::endl;
-		}
-		std::cout << std::endl;
-	}
-	file.close();
-}
-
-bool	BitcoinExchange::validateInput(std::string const &input) const {
-	if (input.length() < 14) {
-		return (false);
-	}
-	if (input[4] != '-' || input[7] != '-' || input[10] != ' ' || input[11] != '|' || input[12] != ' ') {
-		return (false);
-	}
-	int	year, moth, day;
-	float	value;
-	char	extra;
-	if (sscanf(input.c_str(), "%d-%d-%d | %f%c", &year, &moth, &day, &value, &extra) != 4) {
-		return (false);
-	}
-
-	std::size_t	space = input.find(' ');
-	std::string	date = input.substr(0, space);
-	if (validateDate(date) == false) {
-		return (false);
-	}
-	return (true);
 }
 
 float	BitcoinExchange::findValue(std::string const &key) const {
@@ -176,20 +143,14 @@ float	BitcoinExchange::findValue(std::string const &key) const {
 	if (key != it->first) {
 		--it;
 	}
-	std::cout << BLUE "Date ref: " DFT YELLOW << it->first \
-		<< DFT BLUE " | Value 1BTC: " DFT YELLOW << it->second << DFT << std::endl;
 	return (it->second);
 }
 
 float	BitcoinExchange::convertBitcoin(std::string const &date, \
 										float const &valueInput) {
 	if (valueInput > 1000) {
-		std::cerr << ORANGE << date << " | " << valueInput << std::fixed \
-		<< std::setprecision(2) << DFT << std::endl;
 		throw std::runtime_error(RED "too large a number." DFT);
 	} else if (valueInput < 0) {
-		std::cerr << ORANGE << date << " | " << valueInput << std::fixed \
-		<< std::setprecision(2) << DFT << std::endl;
 		throw std::runtime_error(RED "not a positive number." DFT);
 	}
 	
@@ -222,4 +183,32 @@ void	BitcoinExchange::printExchange(std::string const &input) {
 	std::cout << BLUE " = " DFT;
 	std::cout << GREEN << convertedValue << std::fixed << std::setprecision(2);
 	std::cout << DFT << std::endl;
+}
+
+void	BitcoinExchange::printFile(std::string const &fileName) {
+	std::ifstream	file(   fileName.c_str());
+
+	if (!file) {
+		throw std::runtime_error(RED "could not open file." DFT);
+	}
+
+	std::string line;
+	std::string firstLine;
+	getline(file, firstLine);
+
+	if (strcmp(firstLine.c_str(), "date | value")) {
+		throw std::runtime_error(RED "wrong field. \"date | value\"" DFT);
+	}
+
+	while (std::getline(file, line)) {
+		if (line == firstLine) {
+			continue;
+		}
+		try {
+			printExchange(line);
+		} catch (const std::exception &e) {
+			std::cerr << RED "Error: " << e.what() << DFT << std::endl;
+		}
+	}
+	file.close();
 }

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 22:24:51 by andrefil          #+#    #+#             */
-/*   Updated: 2024/09/06 04:03:52 by andrefil         ###   ########.fr       */
+/*   Created: 2024/09/05 16:10:16 by andrefil          #+#    #+#             */
+/*   Updated: 2024/09/06 04:03:13 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BIT_COIN_EXCHANGE_HPP
-# define BIT_COIN_EXCHANGE_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # define BLUE_GREEN "\033[32;44m"
 # define MAG_YE "\033[33;45m"
@@ -26,33 +26,26 @@
 # define GRAY "\033[38;5;244m"
 # define DFT "\033[0m"
 
-# include <map>
+# include <stack>
 # include <string>
 
-class	BitcoinExchange {
+class	RPN {
 
 private:
-	std::map<std::string, float>	_data;
-	std::string						_file;
+	
+	std::stack<int>	_stack;
+	std::string		_expression;
 
-	BitcoinExchange(void);
-	BitcoinExchange(BitcoinExchange const &param);
-
-	BitcoinExchange	&operator=(BitcoinExchange const &param);
-
-	void	setData(void);
-	bool	validateDate(std::string const &date) const;
-	float	convertBitcoin(std::string const &date, float const &valueInput);
-	void	printExchange(std::string const &input);
-	bool	validateInput(std::string const &input) const;
-	float	findValue(std::string const &key) const;
-	void	printData(void) const;
+	void	resolveRPN(void);
+	RPN(void);
+	RPN	&operator=(RPN const &param);
+	RPN(RPN const &param);
 
 public:
-	~BitcoinExchange(void);
-	BitcoinExchange(std::string const &file);
+	RPN(std::string const &expression);
+	~RPN(void);
 
-	void	printFile(std::string const &file);
+	void	printRPN(void);
 };
 
 #endif
