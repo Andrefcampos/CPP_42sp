@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 16:10:24 by andrefil          #+#    #+#             */
-/*   Updated: 2024/09/06 03:57:11 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/09/06 04:29:07 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int ac, char **av) {
 		return (1);
 	}
 
-	RPN	calc(av[1]);
-	calc.printRPN();
+	RPN	rpn(av[1]);
+	rpn.printRPN();
 
 	return (0);
 }
