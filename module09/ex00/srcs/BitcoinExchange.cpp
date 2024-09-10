@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 00:14:56 by andrefil          #+#    #+#             */
-/*   Updated: 2024/09/06 04:14:41 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/09/09 19:11:21 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ bool	BitcoinExchange::validateInput(std::string const &input) const {
 	char	extra;
 	if (sscanf(input.c_str(), "%d-%d-%d | %f%c", &year, &moth, &day, &value, \
 		&extra) != 4) {
+		return (false);
+	}
+	if (year == 2009 && moth == 1 && day == 1) {
 		return (false);
 	}
 

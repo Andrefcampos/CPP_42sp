@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 04:21:14 by andrefil          #+#    #+#              #
-#    Updated: 2024/09/06 06:44:20 by andrefil         ###   ########.fr        #
+#    Updated: 2024/09/08 08:58:40 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,9 @@ $(NAME): $(OBJS)
 	@echo "Linking $(NAME)"
 	@$(CC) $(OBJS) -o $(NAME)
 
-run: re
-	@clear && valgrind --leak-check=full --show-leak-kinds=all \
-	./$(NAME) 'shuf -i 1-100000 -n 3000 | tr "\n" " "' && make fclean
+# run: re
+# 	@clear && valgrind --leak-check=full --show-leak-kinds=all \
+# 	ARG='shuf -i 1-100000 -n 3000 | tr "\n" " "'; ./$(NAME) ARG && make fclean
 
 clean:
 	@echo "Objects clean: $(OBJS)"
